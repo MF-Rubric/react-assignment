@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-export const MoviesContext = React.createContext(null);
+export const MediaContext = React.createContext(null);
 
-const MoviesContextProvider = (props) => {
+const MediaContextProvider = (props) => {
   const [favorites, setFavorites] = useState( [] )
   const [myReviews, setMyReviews] = useState( {} ) 
   const [mustwatch, setMyWatchlist] = useState( [] ) 
@@ -47,7 +47,7 @@ console.log(mustwatch)
   };
 
   return (
-    <MoviesContext.Provider
+    <MediaContext.Provider
       value={{
         favorites,
         addToFavorites,
@@ -59,9 +59,9 @@ console.log(mustwatch)
       }}
     >
       {props.children}
-    </MoviesContext.Provider>
+    </MediaContext.Provider>
   );
 
 };
 
-export default MoviesContextProvider;
+export default MediaContextProvider;

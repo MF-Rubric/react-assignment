@@ -18,27 +18,27 @@ import React, { useContext  } from "react";
 import { MediaContext } from "../../contexts/mediaContext";
 
 
-export default function MovieCard({ movie, action }) {
+export default function TVCard({ tv, action }) {
  
 
   const { favorites, addToFavorites } = useContext(MediaContext);
 
-  if (favorites.find((id) => id === movie.id)) {
-    movie.favorite = true;
+  if (favorites.find((id) => id === tv.id)) {
+    tv.favorite = true;
   } else {
-    movie.favorite = false
+    tv.favorite = false
   }
 
   const handleAddToFavorite = (e) => {
     e.preventDefault();
-    addToFavorites(movie);
+    addToFavorites(tv);
   };
 
   return (
     <Card sx={{ maxWidth: 345 }}>
            <CardHeader
         avatar={
-          movie.favorite ? (
+          tv.favorite ? (
             <Avatar sx={{ backgroundColor: 'red' }}>
               <FavoriteIcon />
             </Avatar>
@@ -46,7 +46,7 @@ export default function MovieCard({ movie, action }) {
         }
         title={
           <Typography variant="h5" component="p">
-            {movie.title}{" "}
+            {tv.title}{" "}
           </Typography>
         }
       />
@@ -54,8 +54,8 @@ export default function MovieCard({ movie, action }) {
       <CardMedia
         sx={{ height: 500 }}
         image={
-          movie.poster_path
-            ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+          tv.poster_path
+            ? `https://image.tmdb.org/t/p/w500/${tv.poster_path}`
             : img
         }
       />
@@ -64,20 +64,20 @@ export default function MovieCard({ movie, action }) {
           <Grid item xs={6}>
             <Typography variant="h6" component="p">
               <CalendarIcon fontSize="small" />
-              {movie.release_date}
+              {tv.first_air_date}
             </Typography>
           </Grid>
           <Grid item xs={6}>
             <Typography variant="h6" component="p">
               <StarRateIcon fontSize="small" />
-              {"  "} {movie.vote_average}{" "}
+              {"  "} {tv.vote_average}{" "}
             </Typography>
           </Grid>
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-        {action(movie)}
-        <Link to={`/movies/${movie.id}`}>
+        {action(tv)}
+        <Link to={`/shows/${tv.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>
