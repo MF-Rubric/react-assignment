@@ -1,3 +1,4 @@
+
 import React from "react";
 import { getShows } from "../api/tmdb-api";
 import PageTemplate from '../components/templateTVListPage';
@@ -5,7 +6,7 @@ import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 
-const TvShowPage = (props) => {
+const TVShowPage = (props) => {
 
   const {  data, error, isLoading, isError }  = useQuery('tvshow', getShows)
 
@@ -34,4 +35,4 @@ const TvShowPage = (props) => {
 );
 
 };
-export default TvShowPage;
+export default TVShowPage;

@@ -7,7 +7,7 @@ const MediaContextProvider = (props) => {
   const [myReviews, setMyReviews] = useState( {} ) 
   const [mustwatch, setMyWatchlist] = useState( [] ) 
 console.log(mustwatch)
-  const addToFavorites = (movie) => {
+  const addToFavorites = (movie,tv) => {
     let newFavorites = [];
     if (!favorites.includes(movie.id)){
       newFavorites = [...favorites, movie.id];
@@ -19,9 +19,9 @@ console.log(mustwatch)
   };
 
   // We will use this function in a later section
-  const removeFromFavorites = (movie) => {
+  const removeFromFavorites = (movie,tv) => {
     setFavorites( favorites.filter(
-      (mId) => mId !== movie.id
+      (mId) => mId !== movie.id,tv.id
     ) )
   };
   const addReview = (movie, review) => {

@@ -28,7 +28,7 @@ const TVHeader = (props) => {
 
       <Typography variant="h4" component="h3">
         {tv.title}
-        <a href={tv.homepage}>
+        <a href={tv.tvshowPage}>
           <HomeIcon color="primary" />
         </a>
         <br />

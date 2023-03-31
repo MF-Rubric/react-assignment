@@ -21,7 +21,7 @@ const formControl =
     backgroundColor: "rgb(255, 255, 255)"
   };
 
-export default function FilterTVCard(props) {
+export default function FilterShowsCard(props) {
 
   const { data, error, isLoading, isError } = useQuery("genres", getGenres);
 

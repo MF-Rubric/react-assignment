@@ -3,12 +3,14 @@ import PageTemplate from "../components/templateMovieListPage";
 import { MediaContext } from "../contexts/mediaContext";
 import { useQueries } from "react-query";
 import { getMovie } from "../api/tmdb-api";
+import { getTV } from "../api/tmdb-api";
 import Spinner from '../components/spinner'
 import RemoveFromFavorites from "../components/cardIcons/removeFromFavorites";
 import WriteReview from "../components/cardIcons/writeReview";
 
-const FavoriteMoviesPage = () => {
+const FavoriteMediaPage = () => {
   const {favorites: movieIds } = useContext(MediaContext);
+  const {favorites: tvIds } = useContext(MediaContext);
 
   // Create an array of queries and run in parallel.
   const favoriteMovieQueries = useQueries(
@@ -16,6 +18,14 @@ const FavoriteMoviesPage = () => {
       return {
         queryKey: ["movie", { id: movieId }],
         queryFn: getMovie,
+      };
+    })
+  );
+  const favoriteTVQueries = useQueries(
+    tvIds.map((tvId) => {
+      return {
+        queryKey: ["tv", { id: tvId }],
+        queryFn: getTV,
       };
     })
   );
@@ -35,7 +45,7 @@ const FavoriteMoviesPage = () => {
 
   return (
     <PageTemplate
-      title="Favorite Movies"
+      title="Favorite Media"
       movies={movies}
       action={(movie) => {
         return (
@@ -45,9 +55,10 @@ const FavoriteMoviesPage = () => {
           </>
         );
       }}
+      
     />
   );
-
+ 
 };
 
-export default FavoriteMoviesPage;
+export default FavoriteMediaPage;

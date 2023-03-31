@@ -3,12 +3,12 @@ import { MediaContext } from "../../contexts/mediaContext";
 import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-const AddToFavoritesIcon = ({ movie }) => {
+const AddToFavoritesIcon = ({ movie,tv }) => {
   const context = useContext(MediaContext);
 
   const handleAddToFavorites = (e) => {
     e.preventDefault();
-    context.addToFavorites(movie);
+    context.addToFavorites(movie,tv);
   };
 
   return (
@@ -17,5 +17,6 @@ const AddToFavoritesIcon = ({ movie }) => {
     </IconButton>
   );
 };
+
 
 export default AddToFavoritesIcon;

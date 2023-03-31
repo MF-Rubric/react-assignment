@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "../headerTVList";
-import FilterCard from "../filterTVCard";
+import FilterCard from "../filterShowsCard";
 import TVList from "../tvList";
 import Grid from "@mui/material/Grid";
 

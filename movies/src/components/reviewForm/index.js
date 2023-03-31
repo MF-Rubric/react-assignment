@@ -61,7 +61,7 @@ const styles = {
   },
 };
 
-const ReviewForm = ({ movie }) => {
+const ReviewForm = ({ movie}) => {
   const context = useContext(MediaContext);
   const [rating, setRating] = useState(3);
   const [open, setOpen] = useState(false); 

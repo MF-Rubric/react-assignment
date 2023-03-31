@@ -63,9 +63,9 @@ const TVDetails = ({ tv }) => {  // Don't miss this!
         sx={{...root}}
       >
         <li>
-          <Chip label="provider_name" sx={{...chip}} color="primary" />
+          <Chip label="networks" sx={{...chip}} color="primary" />
         </li>
-        {tv.provider_name.map((g) => (
+        {tv.networks.map((g) => (
           <li key={g.name}>
             <Chip label={g.name} sx={{...chip}} />
           </li>
@@ -84,9 +84,7 @@ const TVDetails = ({ tv }) => {  // Don't miss this!
         <NavigationIcon />
         Reviews
       </Fab>
-      <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-         
-      </Drawer>
+      
 
       </>
   );
