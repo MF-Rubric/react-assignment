@@ -4,17 +4,19 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
 import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
-import FavoriteMediaPage from "./pages/favoriteMediaPage";
+import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader'
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
-import MediaContextProvider from "./contexts/mediaContext";
+import MovieContextProvider from "./contexts/movieContext";
+import TVContextProvider from "./contexts/tvContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import MustWatchMoviesPage from "./pages/mustwatchMoviesPage";
 import TVShowPage from "./pages/TVShowPage";
 import TVPage from "./pages/tvDetailsPage";
+import FavoriteShowsPage from "./pages/favoriteShowsPage";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -31,11 +33,13 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <SiteHeader />
-        <MediaContextProvider>
+        <MovieContextProvider>
+        <TVContextProvider>
     <Routes>
       <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
-      <Route path="/movies/favorites" element={<FavoriteMediaPage />} />
+      <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
           <Route path="movies/mustwatch" element={<MustWatchMoviesPage/>}/>
+          <Route path="/shows/tvfavorites" element={<FavoriteShowsPage/>}/>
           <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
           <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
           <Route path="/shows/tv" element={ <TVShowPage /> } />
@@ -45,7 +49,8 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={ <Navigate to="/" /> } />
     </Routes>
-  </MediaContextProvider>
+    </TVContextProvider>
+  </MovieContextProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

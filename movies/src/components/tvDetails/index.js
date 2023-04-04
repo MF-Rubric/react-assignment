@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-
+import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import StarRate from "@mui/icons-material/StarRate";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
@@ -57,6 +57,9 @@ const TVDetails = ({ tv }) => {  // Don't miss this!
           label={`${tv.vote_average} (${tv.vote_count}`}
         />
         <Chip label={`Released: ${tv.first_air_date}`} />
+        <Chip
+          icon={<ControlPointIcon />}label={`${tv.number_of_seasons} seasons.`}
+        />
       </Paper>
       <Paper 
         component="ul" 
@@ -69,6 +72,7 @@ const TVDetails = ({ tv }) => {  // Don't miss this!
           <li key={g.name}>
             <Chip label={g.name} sx={{...chip}} />
           </li>
+          
         ))}
       </Paper>
       <Fab
@@ -90,3 +94,8 @@ const TVDetails = ({ tv }) => {  // Don't miss this!
   );
 };
 export default TVDetails ;
+
+
+
+
+  

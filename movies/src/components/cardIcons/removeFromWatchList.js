@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { MediaContext } from "../../contexts/mediaContext";
+import {MovieContext } from "../../contexts/movieContext";
 
 const RemoveFromPlaylistIcon = ({ movie }) => {
-  const context = useContext(MediaContext);
+  const context = useContext(MovieContext);
 
   const handleRemoveFromMustWatch = (e) => {
     e.preventDefault();

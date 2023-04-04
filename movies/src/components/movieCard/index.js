@@ -15,13 +15,13 @@ import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png'
 import Avatar from '@mui/material/Avatar';
 import React, { useContext  } from "react";
-import { MediaContext } from "../../contexts/mediaContext";
+import { MovieContext } from "../../contexts/movieContext";
 
 
 export default function MovieCard({ movie, action }) {
  
 
-  const { favorites, addToFavorites } = useContext(MediaContext);
+  const { favorites, addToFavorites } = useContext(MovieContext);
 
   if (favorites.find((id) => id === movie.id)) {
     movie.favorite = true;

@@ -15,23 +15,23 @@ import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png'
 import Avatar from '@mui/material/Avatar';
 import React, { useContext  } from "react";
-import { MediaContext } from "../../contexts/mediaContext";
+import { TVContext } from "../../contexts/tvContext";
 
 
 export default function TVCard({ tv, action }) {
  
 
-  const { favorites, addToFavorites } = useContext(MediaContext);
+  const { tvfavorites, addToTVFavorites } = useContext(TVContext);
 
-  if (favorites.find((id) => id === tv.id)) {
+  if (tvfavorites.find((id) => id === tv.id)) {
     tv.favorite = true;
   } else {
     tv.favorite = false
   }
 
-  const handleAddToFavorite = (e) => {
+  const handleAddToTVFavorite = (e) => {
     e.preventDefault();
-    addToFavorites(tv);
+    addToTVFavorites(tv);
   };
 
   return (
@@ -44,9 +44,9 @@ export default function TVCard({ tv, action }) {
             </Avatar>
           ) : null
         }
-        title={
+        name={
           <Typography variant="h5" component="p">
-            {tv.title}{" "}
+            {tv.name}{" "}
           </Typography>
         }
       />

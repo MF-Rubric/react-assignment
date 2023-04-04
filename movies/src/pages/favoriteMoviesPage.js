@@ -1,16 +1,14 @@
 import React, { useContext } from "react";
 import PageTemplate from "../components/templateMovieListPage";
-import { MediaContext } from "../contexts/mediaContext";
+import { MovieContext } from "../contexts/movieContext";
 import { useQueries } from "react-query";
 import { getMovie } from "../api/tmdb-api";
-import { getTV } from "../api/tmdb-api";
 import Spinner from '../components/spinner'
 import RemoveFromFavorites from "../components/cardIcons/removeFromFavorites";
 import WriteReview from "../components/cardIcons/writeReview";
 
-const FavoriteMediaPage = () => {
-  const {favorites: movieIds } = useContext(MediaContext);
-  const {favorites: tvIds } = useContext(MediaContext);
+const FavoriteMoviesPage = () => {
+  const {favorites: movieIds } = useContext(MovieContext);
 
   // Create an array of queries and run in parallel.
   const favoriteMovieQueries = useQueries(
@@ -18,14 +16,6 @@ const FavoriteMediaPage = () => {
       return {
         queryKey: ["movie", { id: movieId }],
         queryFn: getMovie,
-      };
-    })
-  );
-  const favoriteTVQueries = useQueries(
-    tvIds.map((tvId) => {
-      return {
-        queryKey: ["tv", { id: tvId }],
-        queryFn: getTV,
       };
     })
   );
@@ -45,7 +35,7 @@ const FavoriteMediaPage = () => {
 
   return (
     <PageTemplate
-      title="Favorite Media"
+      title="Favorite Movies"
       movies={movies}
       action={(movie) => {
         return (
@@ -61,4 +51,4 @@ const FavoriteMediaPage = () => {
  
 };
 
-export default FavoriteMediaPage;
+export default FavoriteMoviesPage;

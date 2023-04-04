@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-export const MediaContext = React.createContext(null);
+export const MovieContext = React.createContext(null);
 
-const MediaContextProvider = (props) => {
+const MovieContextProvider = (props) => {
   const [favorites, setFavorites] = useState( [] )
   const [myReviews, setMyReviews] = useState( {} ) 
   const [mustwatch, setMyWatchlist] = useState( [] ) 
-console.log(mustwatch)
-  const addToFavorites = (movie,tv) => {
+
+  const addToFavorites = (movie) => {
     let newFavorites = [];
     if (!favorites.includes(movie.id)){
       newFavorites = [...favorites, movie.id];
@@ -19,14 +19,17 @@ console.log(mustwatch)
   };
 
   // We will use this function in a later section
-  const removeFromFavorites = (movie,tv) => {
+  const removeFromFavorites = (movie) => {
     setFavorites( favorites.filter(
-      (mId) => mId !== movie.id,tv.id
+      (mId) => mId !== movie.id
     ) )
   };
+
   const addReview = (movie, review) => {
     setMyReviews( {...myReviews, [movie.id]: review } )
   };
+  
+
   
     const addToMustWatch= (movie) => {
     let newWatchlist = [];
@@ -47,7 +50,7 @@ console.log(mustwatch)
   };
 
   return (
-    <MediaContext.Provider
+    <MovieContext.Provider
       value={{
         favorites,
         addToFavorites,
@@ -59,9 +62,9 @@ console.log(mustwatch)
       }}
     >
       {props.children}
-    </MediaContext.Provider>
+    </MovieContext.Provider>
   );
 
 };
 
-export default MediaContextProvider;
+export default MovieContextProvider;

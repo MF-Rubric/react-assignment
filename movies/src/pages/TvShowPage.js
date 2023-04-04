@@ -4,7 +4,7 @@ import { getShows } from "../api/tmdb-api";
 import PageTemplate from '../components/templateTVListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
-import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+import AddToTVFavoritesIcon from "../components/cardIcons/addToTVFavorites";
 
 const TVShowPage = (props) => {
 
@@ -26,10 +26,10 @@ const TVShowPage = (props) => {
 
   return (
     <PageTemplate
-      title="Discover Shows"
+      title="Discover Tv Shows"
       shows={shows}
       action={(tv) => {
-        return <AddToFavoritesIcon tv={tv} />
+        return <AddToTVFavoritesIcon tv={tv} />
       }}
     />
 );

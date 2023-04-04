@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { MediaContext } from "../../contexts/mediaContext";
+import { MovieContext } from "../../contexts/movieContext";
 import IconButton from "@mui/material/IconButton";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 
 const AddToPlaylistsIcon = ({ movie }) => {
-  const context = useContext(MediaContext);
+  const context = useContext(MovieContext);
 
   const handleAddToMustWatch = (e) => {
     e.preventDefault();

@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useForm, Controller } from "react-hook-form";
 import React, { useState, useContext } from "react";
-import { MediaContext } from "../../contexts/mediaContext";
+import {MovieContext } from "../../contexts/movieContext";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { useNavigate } from "react-router-dom";
@@ -62,7 +62,7 @@ const styles = {
 };
 
 const ReviewForm = ({ movie}) => {
-  const context = useContext(MediaContext);
+  const context = useContext(MovieContext);
   const [rating, setRating] = useState(3);
   const [open, setOpen] = useState(false); 
   const navigate = useNavigate();
