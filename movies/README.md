@@ -3,17 +3,18 @@
 Name: [Mark Flynn]
 
 ## Overview.
-
+Added a TV Show page that lists TV shows and a details page for each show displlayed. 
+Also added the function to add shows to a tv favorites page and see critic reviews on each tv show detail page.
 [A brief statement on the content of this repository.]
 
 ### Features.
 [ A bullet-point list of the __new features__ you added to the Movies Fan app (and any modifications to existing features) .]
 
-+ Feature 1
-+ Feature 2
-+ Feature 3
-+ etc
-+ etc
++ TV Show page
++ TV Show detail page
++ Adding movies to Must watch page rather than being logged to   the console 
++ critic reviews for TV Show detail page
++ Adding TV show to a TV show favorites page
 
 ## Setup requirements.
 
@@ -23,19 +24,20 @@ Name: [Mark Flynn]
 
 [ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
 
-      
++ Discover list of TV Shows - discover/tv      
++ TV Show details - tv/:id
++ TV Show images - tv/:id/images
++ TV Show critic reviews - tv/:id/reviews
 
-e.g.
-+ Discover list of movies - discover/movie
-+ Movie details - movie/:id
-+ Movie genres = /genre/movie/list
 
 ## Routing.
 
 [ List the __new routes__ supported by your app and state the associated page.]
++ movies/mustwatch - displays movies added to mustwatch page
++ /shows/tv - displays all TV shows
++ /tv/:id - displays a paticular TV show
++ /shows/tvfavorites - displays shows added to tv favorites
 
-+ /shows/tv
-+ /tv/:id
 + /blogs - displays all published blogs.
 + /blogs/:id - displays a particular blog.
 + /blogs/:id/comments - detail view of a particular blog and its comments.
