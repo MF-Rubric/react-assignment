@@ -38,10 +38,6 @@ Also added the function to add shows to a tv favorites page and see critic revie
 + /tv/:id - displays a paticular TV show
 + /shows/tvfavorites - displays shows added to tv favorites
 
-+ /blogs - displays all published blogs.
-+ /blogs/:id - displays a particular blog.
-+ /blogs/:id/comments - detail view of a particular blog and its comments.
-+ etc.
 
 [If relevant, state what aspects of your app are protected (i.e. require authentication) and what is public.]
 
