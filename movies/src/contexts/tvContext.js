@@ -4,7 +4,7 @@ export const TVContext = React.createContext(null);
 
 const TVContextProvider = (props) => {
   const [tvfavorites, setTVFavorites] = useState( [] )
-  const [myReviews, setMyReviews] = useState( {} ) 
+  const [mytvReviews, setMyTVReviews] = useState( {} ) 
   
 
   const addToTVFavorites = (tv) => {
@@ -25,8 +25,8 @@ const TVContextProvider = (props) => {
     ) )
   };
 
-  const addReview = (tv, review) => {
-    setMyReviews( {...myReviews, [tv.id]: review } )
+  const addTVReview = (tv, review) => {
+    setMyTVReviews( {...mytvReviews, [tv.id]: review } )
   };
   
 
@@ -36,7 +36,7 @@ const TVContextProvider = (props) => {
         tvfavorites,
         addToTVFavorites,
         removeFromTVFavorites,
-        addReview,
+        addTVReview,
       }}
     >
       {props.children}

@@ -23,6 +23,8 @@ Name: [Mark Flynn]
 
 [ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
 
+      
+
 e.g.
 + Discover list of movies - discover/movie
 + Movie details - movie/:id
@@ -32,6 +34,8 @@ e.g.
 
 [ List the __new routes__ supported by your app and state the associated page.]
 
++ /shows/tv
++ /tv/:id
 + /blogs - displays all published blogs.
 + /blogs/:id - displays a particular blog.
 + /blogs/:id/comments - detail view of a particular blog and its comments.

@@ -8,7 +8,7 @@ import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
-
+import TVReviews from "../tvReviews";
 
 
 
@@ -88,7 +88,9 @@ const TVDetails = ({ tv }) => {  // Don't miss this!
         <NavigationIcon />
         Reviews
       </Fab>
-      
+      <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+        <TVReviews tv={tv} />
+      </Drawer>
 
       </>
   );

@@ -35,7 +35,7 @@ const FavoriteShowsPage = () => {
 
   return (
     <PageTemplate
-      title="Favorite Media"
+      title="Favorite Shows"
       shows={shows}
       action={(tv) => {
         return (

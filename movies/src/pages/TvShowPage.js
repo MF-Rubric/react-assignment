@@ -26,7 +26,7 @@ const TVShowPage = (props) => {
 
   return (
     <PageTemplate
-      title="Discover Tv Shows"
+      title=" Discover TV Shows"
       shows={shows}
       action={(tv) => {
         return <AddToTVFavoritesIcon tv={tv} />
